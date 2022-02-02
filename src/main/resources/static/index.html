@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>D'Hache B'Horde</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="overlay has-fade"></div>
+        <nav class="flex flex-jc-sb flex-ai-c">
+            <a href="/" class="header__logo"><img src="images/hachehorde_logo.png"/></a>
+
+            <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+                <span class="hambutton"></span>
+                <span class="hambutton"></span>
+                <span class="hambutton"></span>
+            </a>
+
+            <div class="header__links hide-for-mobile">
+                <a href="/">Accueil</a>
+                <a href="/profile">Profil</a>
+                <a href="/register">S'inscrire</a>
+            </div>
+
+            <button type="button" class="header__connecbtn hide-for-mobile">Se connecter</button>
+        </nav>
+
+        <div class="header__menu has-fade">
+            <a href="/">Accueil</a>
+            <a href="/profile">Profil</a>
+            <a href="/register">S'inscrire</a>
+            <a href="/login">Se connecter</a>
+        </div>
+    </header>
+    <main>
+        <section class="intro">
+            <div class="intro__image"></div>
+        </section>
+        <section class="sectionForm">
+            <form class="form flex flex-fd-c" method="post" action="/login">
+                <label for="pseudo">Votre pseudo</label><br>
+                <input class="form__comp" name="pseudo" type="text"><br>
+                <label for="password">Mot de passe</label><br>
+                <input class="form__comp" name="password" type="password">
+                <input class="form__comp form__submit" type="submit" value="Connexion">
+            </form>
+        </section>
+        <!-- <div>
+            <a href="/oauth2/authorization/github">Connectez-vous avez Github</a>
+        </div> -->
+    </main>
+    <script type="text/javascript" src="js/dash.js"></script>
+</body>
+</html>

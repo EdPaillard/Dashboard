@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>D'Hache B'Horde</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="overlay has-fade"></div>
+        <nav class="flex flex-jc-sb flex-ai-c">
+            <a href="/" class="header__logo"><img src="images/hachehorde_logo.png"/></a>
+
+            <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+                <span class="hambutton"></span>
+                <span class="hambutton"></span>
+                <span class="hambutton"></span>
+            </a>
+
+            <div class="header__links hide-for-mobile">
+                <a href="/">Accueil</a>
+                <a href="/register">S'inscrire</a>
+            </div>
+
+            <div class="hiddenmenu__wrapper">
+                <button id="connecHidBtn" type="button" class="header__connecbtn hide-for-mobile">Se connecter</button>
+                <div id="hiddenMenu" class="hiddenmenu hide-for-mobile">
+                    <form class="form flex flex-fd-c" method="post" action="/login">
+                        <label for="email">Votre email</label><br>
+                        <input class="form__comp" name="email" type="email" required><br>
+                        <label for="password">Mot de passe</label><br>
+                        <input class="form__comp" name="password" type="password">
+                        <input class="form__comp form__submit" type="submit" value="Connexion">
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header__menu has-fade">
+            <a href="/">Accueil</a>
+            <a href="/profile">Profil</a>
+            <a href="/register">S'inscrire</a>
+            <a href="/login">Se connecter</a>
+        </div>
+    </header>
+    <main>
+        <section class="intro">
+            <div class="intro__image">
+                <p class="intro__text hide-for-mobile">Inscrivez-vous et suivez toutes les informations qui VOUS intéressent !</p>
+            </div>
+        </section>
+        <section class="sectionForm">
+            <div class="form__wrapper">
+                <div class="form__title">
+                    <p class="form__font">S'inscrire</p>
+                </div>
+                <form class="form flex flex-fd-c" method="post" action="/register">
+                    <label for="email">Votre email</label><br>
+                    <input class="form__comp" name="email" type="email" required><br>
+                    <label for="password">Mot de passe</label><br>
+                    <input id="password" class="form__comp" name="password" type="password" required>
+                    <label for="confirm_password" data-error="Password not match"
+                        data-success="Password ok">Confirmer le mot de passe.</label>
+                    <input id="confirm_password" type="password" class="" required>
+                    <button id="inscriptionBtn" class="form__comp form__submit" type="submit">Inscription</button>
+                </form>
+            </div>
+            <p th:text="${badRegister}"></p>
+        </section>
+        <!-- <div>
+            <a href="/oauth2/authorization/github">Connectez-vous avez Github</a>
+        </div> -->
+    </main>
+    <script type="text/javascript" src="js/dash.js"></script>
+    <script type="text/javascript" src="js/connectBtn.js"></script>
+    <script type="text/javascript" src="js/confirmPass.js"></script>
+</body>
+</html>

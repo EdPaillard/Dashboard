@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <title>D'Hache B'Horde</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="overlay has-fade"></div>
+        <nav class="flex flex-jc-sb flex-ai-c">
+            <a href="/" class="header__logo"><img src="images/hachehorde_logo.png"/></a>
+
+            <a id="btnHamburger" href="#" class="header__toggle hide-for-desktop">
+                <span class="hambutton"></span>
+                <span class="hambutton"></span>
+                <span class="hambutton"></span>
+            </a>
+
+            <div class="header__links hide-for-mobile">
+                <a href="/">Accueil</a>
+                <a href="/register">S'inscrire</a>
+            </div>
+
+            <button id="discBtn" type="button" class="header__connecbtn hide-for-mobile">Se déconnecter</button>
+        </nav>
+
+        <div class="header__menu has-fade">
+            <a href="/">Accueil</a>
+            <a href="/profile">Profil</a>
+            <a href="/register">S'inscrire</a>
+            <a href="/login">Se connecter</a>
+        </div>
+    </header>
+    <main>
+        <div>
+            <h2 class ="welcoming__message">Bienvenue sur votre Dashboard<span id="optionBtn" class="widget__options">&#9881</span></h2>
+            <div class="form__center">
+                <form class="form form__options" action="javascript:servicesOption()">
+                    <div>
+                        <label for="options">Composez votre <strong>D</strong>'Hache <strong>B</strong>'Horde</label>
+                        <select name="options" id="displaySize">
+                            <optgroup label="Ajouter un service">
+                                <option value="weather">Météo</option>
+                                <option value="deezer">Deezer</option>
+                                <option value="News">News</option>
+                                <option value="Youtube">Youtube</option>
+                            </optgroup>
+                            <optgroup label="Supprimer un service">
+                                <option value="weatherDel">Météo</option>
+                                <option value="deezerDel">Deezer</option>
+                                <option value="NewsDel">News</option>
+                                <option value="YoutubeDel">Youtube</option>
+                            </optgroup>
+                        </select>
+                        <input id="displaySizeBtn" type="submit" value="Envoyer!">
+                    </div>
+                </form>
+            </div>
+        </div>
+            <section class="section section__weather flex flex-fd-c">
+                <div>
+                    <h2 class="section__title"><img class="section__img" src="images/weather.png" />Météo</h2>
+                    <form action="javascript:weather()">
+                        <div>
+                            <label for="widget-value-weather">Nom de la ville</label><br>
+                            <input name="value" id="widget-value-weather" placeholder="Ville">
+                        </div>
+                        <div>
+                            <button id="subBtn" type="submit">Ajouter le
+                                widget
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="options">
+                    <form action="javascript:weather()">
+                        <div>
+                            <h4>Ajout d'options</h4>
+                            <div>
+                                <select id="weather-widget-options">
+                                    <option value="">Choisissez une option</option>
+                                    <option value="description">Description</option>
+                                    <option value="humidity">Humidité</option>
+                                    <option value="wind">Force du vent</option>
+                                </select>
+                            </div>
+                            <h5>Suppression de widgets</h5>
+                            <div class="widget__remove">
+                                <select id="weather-widget-delete">
+                                    <option value="">Choisissez une option</option>
+                                    <option value="descriptionDel">Description</option>
+                                    <option value="humidityDel">Humidité</option>
+                                    <option value="windDel">Force du vent</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="submit" value="Envoyer!">
+                    </form>
+                    <div id="tempDisplay" class="container flex flex-ai-c"></div>
+                </div>
+            </section>
+
+            <section class="section section__deezer flex flex-fd-c">
+                <div>
+                    <h2 class="section__title"><img class="section__img" src="images/deezer.png" />Deezer</h2>
+                    <form action="javascript:deezer()">
+                        <div>
+                            <label for="widget-value-deezer">Chanson</label><br>
+                            <input name="value" id="widget-value-deezer" placeholder="Chanson">
+                        </div>
+                        <div>
+                            <button id="subBtn" type="submit">Ajouter le
+                                widget
+                            </button>
+                        </div>
+                    </form>
+                        <div id="deezerDisplay" class="container flex flex-jc-sb flex-ai-c"></div>
+                </div>
+            </section>
+
+            <section class="section section__news flex flex-fd-c">
+                <div>
+                    <h2 class="section__title"><img class="section__img" src="images/news.png" />News - Recherches Libres</h2>
+                    <form action="javascript:news()">
+                        <div>
+                            <label for="widget-value-news">Mot Clef</label><br>
+                            <input name="value" id="widget-value-news" placeholder="Mot Clef">
+                        </div>
+                        <div>
+                            <button id="subBtn" type="submit">Ajouter le
+                                widget
+                            </button>
+                        </div>
+                    </form>
+                        <div id="newsDisplay" class="container flex flex-jc-sb flex-ai-c"></div>
+                </div>
+            </section>
+
+            <section class="section section__hot flex flex-fd-c">
+                <div>
+                    <h2 class="section__title"><img class="section__img" src="images/hotnews.png" />News - Catégories</h2>
+                    <form action="javascript:topnews()">
+                        <div>
+                            <label for="widget-value-hot">Catégorie</label><br>
+                            <input name="value" id="widget-value-hot" placeholder="Catégorie">
+                        </div>
+                        <div>
+                            <button id="subBtn" type="submit">Ajouter le
+                                widget
+                            </button>
+                        </div>
+                    </form>
+                        <div id="hotDisplay" class="container flex flex-jc-sb flex-ai-c"></div>
+                </div>
+            </section>
+
+            <section class="section section__youtube flex flex-fd-c">
+                <div>
+                    <h2 class="section__title"><img class="section__img" src="images/youtube.png" />Youtube</h2>
+                    <article class="section__article">
+                        <form action="javascript:youtubeTrend()">
+                            <div>
+                                <label for="widget-value-youTrend">Top 10</label><br>
+                                <input name="value" id="widget-value-youTrend" type="hidden">
+                            </div>
+                            <div>
+                                <button type="submit">
+                                    Ajouter le widget
+                                </button>
+                            </div>
+                        </form>
+                        <div id="youtubeTrendDisplay" class="container flex flex-jc-sb flex-ai-c">
+                        </div>
+                    </article>
+                    <article class="section__article">
+                        <form action="javascript:youtubeSearch()">
+                            <div>
+                                <label for="widget-value-youSearch">Rechercher une vidéo</label><br>
+                                <input name="value" id="widget-value-youSearch" placeholder="In Cube We Trust">
+                            </div>
+                            <div>
+                                <button id="subBtn" type="submit">Ajouter le
+                                    widget
+                                </button>
+                            </div>
+                        </form>
+                            <div id="youtubeSearchDisplay" class="container flex flex-jc-sb flex-ai-c">
+                            </div>
+                    </article>
+                    <article class="section__article">
+                        <form action="javascript:youtubeSub()">
+                            <div>
+                                <label for="widget-value-youSub">Nombre d'abonnés</label><br>
+                                <input name="value" id="widget-value-youSub" placeholder="Nombre d'abonnés">
+                            </div>
+                            <div>
+                                <button id="subBtn" type="submit">Ajouter le
+                                    widget
+                                </button>
+                            </div>
+                        </form>
+                            <div id="youtubeSubDisplay" class="container flex flex-jc-sb flex-ai-c">
+                            </div>
+                    </article>
+                </div>
+            </section>
+    </main>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/saveServicesUser.js"></script>
+    <script type="text/javascript" src="js/discBtn.js"></script>
+</body>
+</html>
